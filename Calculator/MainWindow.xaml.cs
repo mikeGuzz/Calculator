@@ -145,7 +145,12 @@ namespace Calculator
             }
             switch (e.Key)
             {
-                case Key.Back:
+                case Key.Back:   
+                    if (invalidRes || outReset)
+                    {
+                        Clear();
+                        return;
+                    }
                     if (out_textBlock.Text.Length == 1)
                         out_textBlock.Text = "0";
                     else if (out_textBlock.Text.Length > 0)
